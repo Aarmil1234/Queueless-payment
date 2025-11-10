@@ -10,6 +10,11 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running correctly!");
+});
+
+
 app.post("/api/create-upi-link", (req, res) => {
   const { name, amount, date } = req.body;
   if (!name || !amount || !date) {
@@ -27,5 +32,6 @@ app.post("/api/create-upi-link", (req, res) => {
   res.json({ upiLink });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
